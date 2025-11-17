@@ -1,0 +1,35 @@
+[project]
+name = "customer-chatbot-backend"
+version = "1.0.0"
+description = "ChatKit-powered knowledge assistant backend - customizable template for customer projects"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.114.1,<0.116",
+    "httpx>=0.28,<0.29",
+    "uvicorn[standard]>=0.36,<0.37",
+    "openai>=1.40",
+    "openai-chatkit>=1.0.2,<2",
+]
+
+[project.optional-dependencies]
+dev = [
+    "ruff>=0.6.4,<0.7",
+    "mypy>=1.8,<2",
+]
+
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+extend-select = ["I"]
+
+[tool.mypy]
+python_version = "3.11"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false

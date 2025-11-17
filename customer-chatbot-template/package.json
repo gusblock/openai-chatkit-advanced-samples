@@ -1,0 +1,24 @@
+{
+  "name": "customer-chatbot-template",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Customizable ChatKit-powered knowledge assistant template",
+  "scripts": {
+    "start": "concurrently --kill-others-on-fail --names backend,frontend \"npm run backend\" \"npm run frontend\"",
+    "frontend": "cd frontend && npm install && npm run dev",
+    "backend": "cd backend && uvicorn app.main:app --reload --port 8002",
+    "backend:uv": "uv sync --directory backend && uv run --directory backend uvicorn app.main:app --reload --port 8002",
+    "configure": "python scripts/configure-customer.py",
+    "setup-docs": "python scripts/setup-vector-store.py"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  },
+  "keywords": [
+    "chatkit",
+    "openai",
+    "knowledge-assistant",
+    "chatbot",
+    "customer-template"
+  ]
+}
